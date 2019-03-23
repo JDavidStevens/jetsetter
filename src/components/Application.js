@@ -37,7 +37,7 @@ class Application extends Component {
 
   toggleItem= (itemToToggle)=>{
     const items = this.state.items.map(item=>{
-      if(item.id !== itemToToggle) return item;
+      if(item.id !== itemToToggle.id) return item;
       return {...itemToToggle, packed: !itemToToggle.packed}
     })
     this.setState({items})
@@ -59,7 +59,7 @@ class Application extends Component {
         <NewItem onSubmit={this.addItem}/>
         <CountDown />
         <Items title="Unpacked Items" items={unpackedItems} onRemove={this.removeItem} onToggle={this.toggleItem}/>
-        <Items title="Packed Items" items={packedItems} onToggle={this.toggleItem}/>
+        <Items title="Packed Items" items={packedItems} nRemove={this.removeItem} onToggle={this.toggleItem}/>
         <button className="button full-width" onClick={this.markAllAsUnpacked}>Mark All As Unpacked</button>
       </div>
     );

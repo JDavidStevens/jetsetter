@@ -10,8 +10,8 @@ class Item extends Component {
           <input
             type="checkbox"
             checked={item.packed}
-            onChange={() => this.props.onToggle(item)}
             id={item.id}
+            onChange={() => this.props.onToggle(item)}
           />
           {item.value}
         </label>
