@@ -3,6 +3,7 @@ import uniqueId from 'lodash/uniqueId';
 import CountDown from './CountDown';
 import NewItem from './NewItem';
 import Items from './Items';
+import UndoRedoContainer from '../containers/UndoRedoContainer';
 
 import './Application.css';
 
@@ -54,6 +55,7 @@ class Application extends Component {
     return (
       <div className="Application">
         <NewItem onSubmit={this.addItem} />
+        <UndoRedoContainer/>
         <CountDown {...this.state} />
         <Items
           title="Unpacked Items"
