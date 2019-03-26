@@ -1,5 +1,6 @@
 import { observable, computed, action } from 'mobx';
 import Item from './item';
+// import { makeNonEnumerable } from 'mobx/lib/utils/utils';
 
 export default class ItemList {
   @observable items = [];
@@ -24,7 +25,7 @@ export default class ItemList {
   }
 
   @computed
-  get filteredpackedList() {
+  get filteredPackedList() {
     return this.packedItems.filter(item =>
       item.value.includes(this.packedItemsFilter),
     );
@@ -47,4 +48,8 @@ export default class ItemList {
   @action.bound updateUnpackedItemsFilter(value) {
     this.unpackedItemsFilter = value;
   }
+
+  @action.bound markAllAsUnpacked(){
+    this.items = this.items.map(item=> {item.packed = false; return item})
+  } 
 }
